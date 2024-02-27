@@ -134,23 +134,35 @@ fun CameraPreviewScreen(navController: NavController, isConnected: Boolean) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.End,
         ) {
-            FloatingButton(icon = ImageVector.vectorResource(id = R.drawable.baseline_question_mark_24))
-            FloatingButton(icon = ImageVector.vectorResource(id = R.drawable.baseline_settings_24))
-            FloatingButton(icon = ImageVector.vectorResource(id = R.drawable.baseline_wifi_24))
+            FloatingButton(
+                icon = ImageVector.vectorResource(id = R.drawable.baseline_question_mark_24),
+                onClick = {
+                    navController.navigate(Screen.Help.route)
+                })
+            FloatingButton(
+                icon = ImageVector.vectorResource(id = R.drawable.baseline_settings_24),
+                onClick = {
+                    Log.d("FAB", "Settings clicked")
+                })
+            FloatingButton(
+                icon = ImageVector.vectorResource(id = R.drawable.baseline_wifi_24),
+                onClick = {
+                    Log.d("FAB", "Wifi clicked")
+                })
         }
     }
 
 }
 
 @Composable
-fun FloatingButton(icon: ImageVector) {
+fun FloatingButton(icon: ImageVector, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .size(48.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.primary)
             .clickable {
-                Log.d("FAB", "clicked on ${icon}")
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {
