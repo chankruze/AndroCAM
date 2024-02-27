@@ -51,6 +51,7 @@ android {
 
 dependencies {
     val navVersion = "2.7.7"
+    val cameraXVersion = "1.4.0-alpha04"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
@@ -70,4 +71,17 @@ dependencies {
 
     // https://developer.android.com/jetpack/compose/navigation#kts
     implementation("androidx.navigation:navigation-compose:$navVersion")
+
+    // CameraX core library using the camera2 implementation
+    // The following line is optional, as the core library is included indirectly by camera-camera2
+    implementation("androidx.camera:camera-core:${cameraXVersion}")
+    implementation("androidx.camera:camera-camera2:${cameraXVersion}")
+    // If you want to additionally use the CameraX Lifecycle library
+    implementation("androidx.camera:camera-lifecycle:${cameraXVersion}")
+    // If you want to additionally use the CameraX VideoCapture library
+    implementation("androidx.camera:camera-video:${cameraXVersion}")
+    // If you want to additionally use the CameraX View class
+    implementation("androidx.camera:camera-view:${cameraXVersion}")
+    // If you want to additionally use the CameraX Extensions library
+    implementation("androidx.camera:camera-extensions:${cameraXVersion}")
 }
