@@ -14,7 +14,7 @@ fun SetupNavGraph(
     ) {
         // destination 1
         composable(route = Screen.CameraPreview.route) {
-            CameraPreviewScreen(navController = navController)
+            CameraPreviewScreen(navController = navController, true)
         }
 
         // destination 2
